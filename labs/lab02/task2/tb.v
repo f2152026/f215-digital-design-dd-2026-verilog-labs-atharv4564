@@ -1,13 +1,12 @@
 // tb.v
-// Starter testbench template -- YOU complete this file.
+// Testbench for lut with parameter override.
 
 module tb;
 
-  // TODO: declare the inputs and outputs
   reg  [2:0] t_sel;
   wire [7:0] t_dout;
 
-  // TODO: instantiate DUT here
+  // Parameter override: WIDTH=8, DEPTH=8
   lut #(.WIDTH(8), .DEPTH(8)) DUT (
     .sel  (t_sel),
     .dout (t_dout)
@@ -24,7 +23,6 @@ module tb;
 
   integer k;
   initial begin
-    // TODO: apply different input combinations
     #1;
     for (k = 0; k < 8; k = k + 1) begin
       t_sel = k;
@@ -34,6 +32,6 @@ module tb;
   end
 
   initial
-    $monitor($time, " sel=%0d | dout=%0d", t_sel, t_dout); // change as required
+    $monitor($time, " sel=%0d | dout=%0d (hex: 0x%0h)", t_sel, t_dout, t_dout);
 
 endmodule

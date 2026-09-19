@@ -1,3 +1,6 @@
+// tb.v
+// Self-checking testbench for 2-bit comparator comp2.
+
 `timescale 1ns/1ps
 
 module tb;
@@ -12,6 +15,7 @@ module tb;
     .EQ (EQ)
   );
 
+  // Waveform dump configuration
   string vcd_file;
   initial begin
     if ($value$plusargs("vcd=%s", vcd_file)) begin
